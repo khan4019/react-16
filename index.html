@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>GraphQL – for Beginners</title>
+	<title>React 16 – What's new</title>
 
 	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 	<meta name="author" content="Jhankar Mahbub">
@@ -16,7 +16,7 @@
 
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/white.css" id="theme">
-	<link rel="shortcut icon" href="./images/graph1.png" type="image/x-icon">
+	<link rel="shortcut icon" href="./images/react.png" type="image/x-icon">
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
 	<link rel="stylesheet" href="css/custom.css">
@@ -47,7 +47,7 @@
 				<img src="images/react2.jpg" class="logo-image" />
 				<h3>What's new in</h3>
 				<h1>React 16</h1>
-				
+
 				<br>
 				<p style="font-size: 70%; opacity: 0.5" class="normal-font">
 					by Jhankar Mahbub /
@@ -112,18 +112,133 @@
 					<p>It is called GraphQL as it allows you to extract trees from the data graph</p>
 				</aside>
 			</section>
+
 			<section>
 				<section>
-					<h1>REST</h1>
-					<br>
-					<h3>Representational State Transfer</h3>
+					<h1>React Fiber</h1>
 				</section>
 				<section>
-					<img src="./images/extra/rest-api.svg" alt="">
-				</section>
-				
-				
+					<h2>React Rendering</h2>
+					<ul>
+						<li>Rendering engine for the browser is single threaded</li>
+						<li class="fragment">Nearly all actions happen synchronously</li>
+						<li class="fragment">Previously, React would block the entire thread as it calculated the tree.</li>
 
+						<li class="fragment">blocking the main thread could still cause some applications to not feel fluid</li>
+
+
+
+
+					</ul>
+					<aside class="notes">
+						<p>React 16 manages the main thread and rendering using native browser APIs by intermittently checking to see if there
+							is other work that needs to be performed. </p>
+						<p>async rendering means is that the rendering work can be split into chunks and spread out over multiple frames</p>
+					</aside>
+				</section>
+				<section>
+					<img src="./images/stackReconciliation.png" alt="">
+				</section>
+				<section>
+					<h2>Async Rendering</h2>
+					<ul>
+						<li class="fragment">Core Algorithm Rewrite</li>
+						<li class="fragment">Rendering work can be split into chunks</li>
+						<li class="fragment">Rendering spread out over multiple frames</li>
+
+						<li class="fragment">React computes part of the tree </li>
+						<li class="fragment">then will pause rendering to check if the main thread</li>
+						<li class="fragment">Is any paints or updates that need to be performed</li>
+						<li class="fragment">Once the paints and updates have been completed, React begins rendering again.</li>
+						<li class="fragment">accomplished by a data structure called a “fiber”</li>
+					</ul>
+					<aside class="notes">
+						<p>React computes part of the tree and then will pause rendering to check if the main thread has any paints or updates
+							that need to be performed</p>
+					</aside>
+				</section>
+				<section>
+					<img src="./images/fiber.png" alt="">
+				</section>
+				<section>
+					<h2> prioritize updates</h2>
+					<ul>
+						<li class="fragment">prioritize updates by importance</li>
+						<li class="fragment">allows high priority updates to jump to the front of the line</li>
+						<li class="fragment">processed important stuff first</li>
+						<li class="fragment">Like: keyboard input gets high priority</li>
+						<li class="fragment">API response will get low priority</li>
+					</ul>
+					<br><br>
+					<a href="https://edgecoders.com/react-16-features-and-fiber-explanation-e779544bb1b7">Fiber Explanation</a>
+					<aside class="notes">
+						<p> key input. This is high priority because the user needs that immediate feedback to feel fluid as opposed to a low priority update like an API response</p>
+					</aside>
+				</section>
+				<section>
+					<img src="./images/priority.png" alt="">
+				</section>
+				<section>
+					<h2>Why Fiber</h2>
+					<ul>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+					</ul>
+					<p>By breaking the UI updates into smaller units of work, a better overall user experience is achieved. Pausing reconciliation work to allow the main thread to execute other necessary tasks provides a smoother interface and better perceived performance.</p>
+				</section>
+				<section>
+					<h2>Fiber demo</h2>
+					<aside class="notes">
+						<p>React 16 is dependent on Map and Set. To ensure compatibility with all browsers, you must include a polyfill. Popular options are core-js or babel-polyfill.</p>
+					</aside>
+				</section>
+			</section>
+			<section>
+				<section>
+						<h1>Context</h1>
+				</section>
+				<section>
+
+				</section>
+				<section>
+
+				</section>
+				<section>
+
+				</section>
+				<section>
+
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Portals</h1>
+				</section>
+				<section></section>
+				<section></section>
+			</section>
+			<section>
+				<section>
+					<h1>Error Handling</h1>
+				</section>
+				<section>
+					<p>Previously, errors inside components would corrupt React’s state and provide cryptic errors on subsequent renders.</p>
+					<p>React 16 includes error boundaries will not only provide much clearer error messaging, but also prevent the entire application from breaking.</p>
+				</section>
+				<section>
+					<p>After being added to your app, error boundaries catch errors and gracefully display a fallback UI without the entire component tree crashing. The boundaries can catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them. Error boundaries are simply implemented through the new lifecycle method componentDidCatch(error, info).</p>
+				</section>
+				<section>
+					<img src="./images/error.png" alt="">
+				</section>
+				<section>
+					<img src="./images/error2.png" alt="">
+				</section>
+			</section>
 			<section>
 				<section>
 					<h1>Learn New thing</h1>
@@ -138,26 +253,32 @@
 					<img class="fragment" style="height:500px;" src="./images/others/workshop1.jpg" alt="">
 				</section>
 				<section>
-					<p><a href="http://thatjsdude.com/workshops/react/">thatjsdude.com/workshops/react</a></p>
+					<p>
+						<a href="http://thatjsdude.com/workshops/react/">thatjsdude.com/workshops/react</a>
+					</p>
 					Email:
-					<span >khan4019@gmail.com</span>
+					<span>khan4019@gmail.com</span>
 				</section>
 			</section>
 			<section>
 				<h2>References</h2>
 				<ul>
-					<li><a href="https://www.howtographql.com/basics/0-introduction/">How to GraphQL</a></li>
-					<li><a href="https://graphql.github.io/graphql-js/">GraphQl tutorials in github</a></li>
+					<li>
+						<a href="https://www.howtographql.com/basics/0-introduction/">How to GraphQL</a>
+					</li>
+					<li>
+						<a href="https://graphql.github.io/graphql-js/">GraphQl tutorials in github</a>
+					</li>
 					<li>
 						<a href="https://medium.com/@weblab_tech/graphql-everything-you-need-to-know-58756ff253d8">Everything you need to know about GraphQL</a>
 					</li>
 					<li>
-							<a href="https://www.robinwieruch.de/react-with-graphql-tutorial/">A complete React with GraphQL Tutorial
-							</a>
-						</li>
-						<li>
-								<a href="https://dev-blog.apollodata.com/the-graphql-stack-how-everything-fits-together-35f8bf34f841">The GraphQL stack: How everything fits together</a>
-							</li>
+						<a href="https://www.robinwieruch.de/react-with-graphql-tutorial/">A complete React with GraphQL Tutorial
+						</a>
+					</li>
+					<li>
+						<a href="https://dev-blog.apollodata.com/the-graphql-stack-how-everything-fits-together-35f8bf34f841">The GraphQL stack: How everything fits together</a>
+					</li>
 					<!-- 
 					<li>
 						<a href="https://blog.graph.cool/graphql-schema-stitching-explained-schema-delegation-4c6caf468405">Schema Stitching</a>

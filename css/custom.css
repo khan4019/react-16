@@ -25,8 +25,8 @@ img, .logo-image {
 .logo-image {
   opacity: 0.7;
   background-color:#E10098 !important;
-  max-width: 35% !important;
-  max-height: 35% !important;
+  max-width: 40% !important;
+  max-height: 40% !important;
 }
 
 backquote, .reveal p, .reveal li, #credit {
