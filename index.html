@@ -118,15 +118,15 @@
 					<h1>React Fiber</h1>
 				</section>
 				<section>
-						React before Fiber was like working at a fast paced company without git.
-
-						Imagine being in the middle of a huge feature, and your boss needs a hotfix, pronto.
-						
-						With git, you don’t have to worry. Fiber is like that, but for rendering.
-						
-						With Fiber, React can pause and resume work at will to get what matters on screen as quickly as possible! 🎉
-						
-						In short, React Fiber is incredible.
+					<h2>React Fiber</h2>
+					<ul>
+						<li class="fragment1">Think working at a company without git.</li>
+						<li class="fragment">You are in the middle of a huge feature</li>
+						<li class="fragment">Your boss needs a hotfix right now</li>
+						<li class="fragment">With git, you don’t have to worry</li>
+						<li class="fragment"> React Fiber can pause and resume work at will</li>
+						<li class="fragment">get what matters on screen as quickly as possible! 🎉</li>
+					</ul>
 
 						<br><br>
 						<p><a href="https://medium.freecodecamp.org/lets-fall-in-love-with-react-fiber-90f2e1f68ded">React Fiber</a></p>
@@ -151,15 +151,15 @@
 				<section>
 					<h2>Async Rendering</h2>
 					<ul>
-						<li class="fragment">Core Algorithm Rewrite</li>
+						<li class="fragment">Core algorithm was rewritten</li>
 						<li class="fragment">Rendering work can be split into chunks</li>
-						<li class="fragment">Rendering spread out over multiple frames</li>
+						<li class="fragment">Spread out over multiple frames</li>
 
 						<li class="fragment">React computes part of the tree </li>
-						<li class="fragment">then will pause rendering to check if the main thread</li>
-						<li class="fragment">Is any paints or updates that need to be performed</li>
-						<li class="fragment">Once the paints and updates have been completed, React begins rendering again.</li>
-						<li class="fragment">accomplished by a data structure called a “fiber”</li>
+						<li class="fragment">Pause rendering to check if the main thread</li>
+						<li class="fragment">Any paints or updates need to be performed</li>
+						<li class="fragment">When paints/ updates completed, React begins rendering again.</li>
+						<li class="fragment">Accomplished by a data structure called a “fiber”</li>
 					</ul>
 					<aside class="notes">
 						<p>React computes part of the tree and then will pause rendering to check if the main thread has any paints or updates
@@ -170,11 +170,11 @@
 					<img src="./images/fiber.png" alt="">
 				</section>
 				<section>
-					<h2> prioritize updates</h2>
+					<h2> Prioritize Updates</h2>
 					<ul>
-						<li class="fragment">prioritize updates by importance</li>
-						<li class="fragment">allows high priority updates to jump to the front of the line</li>
-						<li class="fragment">processed important stuff first</li>
+						<li class="fragment1">Prioritize updates by importance</li>
+						<li class="fragment">High priority updates jumps to front of line</li>
+						<li class="fragment">Processed important stuff first</li>
 						<li class="fragment">Like: keyboard input gets high priority</li>
 						<li class="fragment">API response will get low priority</li>
 					</ul>
@@ -192,15 +192,13 @@
 				<section>
 					<h2>Why Fiber</h2>
 					<ul>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
+						<li class="fragment1">Breaking the UI updates into smaller units of work</li>
+						<li class="fragment">Better overall user experience is achieved</li>
+						<li class="fragment">Allow the main thread to execute other necessary tasks</li>
+						<li class="fragment">Provides a smoother interface</li>
+						<li class="fragment">Better perceived performance</li>
+						
 					</ul>
-					<p>By breaking the UI updates into smaller units of work, a better overall user experience is achieved. Pausing reconciliation
-						work to allow the main thread to execute other necessary tasks provides a smoother interface and better perceived performance.</p>
 				</section>
 				<section>
 					<h2>Fiber demo</h2>
