@@ -128,8 +128,11 @@
 						<li class="fragment">get what matters on screen as quickly as possible! 🎉</li>
 					</ul>
 
-						<br><br>
-						<p><a href="https://medium.freecodecamp.org/lets-fall-in-love-with-react-fiber-90f2e1f68ded">React Fiber</a></p>
+					<br>
+					<br>
+					<p>
+						<a href="https://medium.freecodecamp.org/lets-fall-in-love-with-react-fiber-90f2e1f68ded">React Fiber</a>
+					</p>
 				</section>
 				<section>
 					<h2>React Rendering</h2>
@@ -197,7 +200,7 @@
 						<li class="fragment">Allow the main thread to execute other necessary tasks</li>
 						<li class="fragment">Provides a smoother interface</li>
 						<li class="fragment">Better perceived performance</li>
-						
+
 					</ul>
 				</section>
 				<section>
@@ -205,7 +208,9 @@
 					<p>
 						<a href="https://claudiopro.github.io/react-fiber-vs-stack-demo/">demo</a>
 					</p>
-					<p><a href="https://gist.github.com/acdlite/f31becd03e2f5feb9b4b22267a58bc1f">another demo</a></p>
+					<p>
+						<a href="https://gist.github.com/acdlite/f31becd03e2f5feb9b4b22267a58bc1f">another demo</a>
+					</p>
 					<aside class="notes">
 						<p>React 16 is dependent on Map and Set. To ensure compatibility with all browsers, you must include a polyfill. Popular
 							options are core-js or babel-polyfill.</p>
@@ -234,16 +239,58 @@
 					<h1>Context</h1>
 				</section>
 				<section>
-
+					<h2>Context</h2>
+					<ul>
+						<li>Pass data through the component tree</li>
+						<li class="fragment">Without passing props down manually at every level</li>
+						<li class="fragment">Otherwise you have to pass manually every level</li>
+						<li class="fragment">Like: Current locale, theme, user Context</li>
+					</ul>
 				</section>
 				<section>
-
+					<img src="./images/context1.png" alt="">
 				</section>
 				<section>
-
+					<h2>When to Use Context</h2>
+					<ul>
+						<li class="fragment">Share values like these between components</li>
+					</ul>
 				</section>
 				<section>
-
+					<h2>Create Context</h2>
+					<img src="./images/context2.png" alt="">
+					<img class="fragment" src="./images/context3.png" alt="">
+				</section>
+				<section>
+					<img src="./images/context4.png" alt="">
+				</section>
+				<section>
+					<h2>API</h2>
+					<img src="./images/context5.png" alt="" class="fragment">
+					<img src="./images/context6.png" alt="" class="fragment">
+					<img src="./images/context7.png" alt="" class="fragment">
+					<p>
+						<small>Don’t use context just to avoid passing props a few levels down. Stick to cases where the same data needs to be accessed
+							in many components at multiple levels.</small>
+					</p>
+				</section>
+				<section>
+					<h2>Advanced Usage</h2>
+					<ul>
+						<li class="fragment">Dynamic Context</li>
+						<li class="fragment">Updating Context from a Nested Component</li>
+						<li class="fragment">Consuming Multiple Contexts</li>
+						<li class="fragment">Accessing Context in Lifecycle Methods</li>
+						<li class="fragment">Consuming Context with a HOC
+						</li>
+						<li class="fragment">Forwarding Refs to Context Consumers</li>
+					</ul>
+					<br>
+					<p>
+						<small>
+							<a href="https://reactjs.org/docs/context.html">Context API</a>
+						</small>
+					</p>
 				</section>
 			</section>
 			<section>
@@ -251,15 +298,34 @@
 					<h1>Portals</h1>
 				</section>
 				<section>
-					<p>Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.</p>
-					<br><br>
-					<p><a href="https://reactjs.org/blog/2017/09/26/react-v16.0.html#portals">Portals</a></p>
+					<h2>Portals</h2>
+					<ul>
+						<li class="fragment">A first-class way to render children into a DOM</li>
+						<li class="fragment">Add children form outside the DOM hierarchy</li>
+						<li class="fragment">Any renderable React child: element, string, or fragment</li>
+						<li class="fragment">Useful for dialogs, hovercards, and tooltips</li>
+						<li class="fragment">Parent will be able to catch event bubble</li>
+					</ul>
+					<img class="fragment" src="./images/portals.png" alt="">
+					<br>
+					<br>
+					<p>
+						<a href="https://reactjs.org/blog/2017/09/26/react-v16.0.html#portals">Portals</a>
+					</p>
+					<aside class="notes">
+						<p>return an element from a component’s render method, it’s mounted into the DOM as a child of the nearest parent </p>
+					</aside>
+				</section>
+				<section>
+					<img src="./images/portals3.png" alt="">
 				</section>
 				<section>
 					<img src="./images/portal.png" alt="">
 				</section>
 				<section>
-					<h2>Read it <a href="https://reactjs.org/docs/portals.html">here</a></h2>
+					<h2>Read it
+						<a href="https://reactjs.org/docs/portals.html">here</a>
+					</h2>
 				</section>
 			</section>
 			<section>
@@ -268,16 +334,19 @@
 				</section>
 				<section>
 					<h2>Fragments</h2>
-					<ul>
-						<li>Fragments look like empty JSX tags</li>
-						<li class="fragment">Allows to group a list of children without adding extra nodes to the DOM:</li>
-					</ul>
-					<img src="./images/fragment.png" alt="">
+
+					<p>Group a list of children without adding extra nodes to the DOM</p>
+					<p class="fragment1">Fragments look like empty JSX tags</p>
+					<img src="./images/fragment2.png" alt="">
 				</section>
 				<section>
-					<p><a href="https://reactjs.org/blog/2017/11/28/react-v16.2.0-fragment-support.html">Fragment</a></p>
-				</section>
+					<h2>Fragment</h2>
 
+					<img src="./images/fragment1.png" alt="">
+					<p>
+						<a href="https://reactjs.org/blog/2017/11/28/react-v16.2.0-fragment-support.html">Fragment</a>
+					</p>
+				</section>
 			</section>
 			<section>
 				<section>
@@ -308,7 +377,8 @@
 					<p>After being added to your app, error boundaries catch errors and gracefully display a fallback UI without the entire
 						component tree crashing. The boundaries can catch errors during rendering, in lifecycle methods, and in constructors
 						of the whole tree below them. Error boundaries are simply implemented through the new lifecycle method componentDidCatch(error,
-						info).</p>
+						info).
+					</p>
 				</section>
 				<section>
 					<img src="./images/error.png" alt="">
