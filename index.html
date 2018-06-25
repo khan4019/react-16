@@ -169,10 +169,12 @@
 						<li class="fragment">Like: keyboard input gets high priority</li>
 						<li class="fragment">API response will get low priority</li>
 					</ul>
-					<br><br>
+					<br>
+					<br>
 					<a href="https://edgecoders.com/react-16-features-and-fiber-explanation-e779544bb1b7">Fiber Explanation</a>
 					<aside class="notes">
-						<p> key input. This is high priority because the user needs that immediate feedback to feel fluid as opposed to a low priority update like an API response</p>
+						<p> key input. This is high priority because the user needs that immediate feedback to feel fluid as opposed to a low priority
+							update like an API response</p>
 					</aside>
 				</section>
 				<section>
@@ -188,18 +190,41 @@
 						<li class="fragment"></li>
 						<li class="fragment"></li>
 					</ul>
-					<p>By breaking the UI updates into smaller units of work, a better overall user experience is achieved. Pausing reconciliation work to allow the main thread to execute other necessary tasks provides a smoother interface and better perceived performance.</p>
+					<p>By breaking the UI updates into smaller units of work, a better overall user experience is achieved. Pausing reconciliation
+						work to allow the main thread to execute other necessary tasks provides a smoother interface and better perceived performance.</p>
 				</section>
 				<section>
 					<h2>Fiber demo</h2>
+					<p>
+						<a href="https://claudiopro.github.io/react-fiber-vs-stack-demo/">demo</a>
+					</p>
+					<p><a href="https://gist.github.com/acdlite/f31becd03e2f5feb9b4b22267a58bc1f">another demo</a></p>
 					<aside class="notes">
-						<p>React 16 is dependent on Map and Set. To ensure compatibility with all browsers, you must include a polyfill. Popular options are core-js or babel-polyfill.</p>
+						<p>React 16 is dependent on Map and Set. To ensure compatibility with all browsers, you must include a polyfill. Popular
+							options are core-js or babel-polyfill.</p>
 					</aside>
 				</section>
 			</section>
 			<section>
 				<section>
-						<h1>Context</h1>
+					<h1>Functional SetState</h1>
+				</section>
+				<section>
+					<img src="./images/functionalSetState.png" alt="">
+					<br>
+					<br>
+					<p>
+						<a href="https://x-team.com/blog/react-render-setstate/">Functional SetState</a>
+					</p>
+				</section>
+				<section>
+					<img src="./images/setState2.png" alt="">
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h1>Context</h1>
 				</section>
 				<section>
 
@@ -218,8 +243,50 @@
 				<section>
 					<h1>Portals</h1>
 				</section>
-				<section></section>
-				<section></section>
+				<section>
+					<p>Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.</p>
+					<br><br>
+					<p><a href="https://reactjs.org/blog/2017/09/26/react-v16.0.html#portals">Portals</a></p>
+				</section>
+				<section>
+					<img src="./images/portal.png" alt="">
+				</section>
+				<section>
+					<h2>Read it <a href="https://reactjs.org/docs/portals.html">here</a></h2>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Fragments</h1>
+				</section>
+				<section>
+					<h2>Fragments</h2>
+					<ul>
+						<li>Fragments look like empty JSX tags</li>
+						<li class="fragment">Allows to group a list of children without adding extra nodes to the DOM:</li>
+					</ul>
+					<img src="./images/fragment.png" alt="">
+				</section>
+				<section>
+					<p><a href="https://reactjs.org/blog/2017/11/28/react-v16.2.0-fragment-support.html">Fragment</a></p>
+				</section>
+
+			</section>
+			<section>
+				<section>
+					<h1>Others</h1>
+				</section>
+				<section>
+					<h2>Custom DOM Attributes</h2>
+					<p>Unknown DOM attributes that are not props would get ignored pre-React 16</p>
+					<img src="./images/domAttribute.png" alt="">
+				</section>
+				<section>
+					<h2>No parent in render</h2>
+				</section>
+				<section>
+					<h2>Server side rendering</h2>
+				</section>
 			</section>
 			<section>
 				<section>
@@ -227,10 +294,14 @@
 				</section>
 				<section>
 					<p>Previously, errors inside components would corrupt React’s state and provide cryptic errors on subsequent renders.</p>
-					<p>React 16 includes error boundaries will not only provide much clearer error messaging, but also prevent the entire application from breaking.</p>
+					<p>React 16 includes error boundaries will not only provide much clearer error messaging, but also prevent the entire application
+						from breaking.</p>
 				</section>
 				<section>
-					<p>After being added to your app, error boundaries catch errors and gracefully display a fallback UI without the entire component tree crashing. The boundaries can catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them. Error boundaries are simply implemented through the new lifecycle method componentDidCatch(error, info).</p>
+					<p>After being added to your app, error boundaries catch errors and gracefully display a fallback UI without the entire
+						component tree crashing. The boundaries can catch errors during rendering, in lifecycle methods, and in constructors
+						of the whole tree below them. Error boundaries are simply implemented through the new lifecycle method componentDidCatch(error,
+						info).</p>
 				</section>
 				<section>
 					<img src="./images/error.png" alt="">
