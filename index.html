@@ -101,18 +101,16 @@
 				<h2>We will Discuss</h2>
 				<ol>
 					<li>React Fiber</li>
-					<li class="fragment">Context API</li>
-					<li class="fragment">CreateRef API</li>
-					<!-- <li class="fragment">How to execute GraphQL Query</li> -->
+					<li class="fragment">Context API</li>					
+					<li class="fragment">Portals, Fragments</li>
 					<li class="fragment">Component Life Cycle changes</li>
-					<!-- <li class="fragment">Use GraphQL with popular framework</li> -->
 					<li class="fragment">Few other change</li>
+					<li class="fragment">CreateRef API</li>
 				</ol>
 				<aside class="notes">
 					<p>It is called GraphQL as it allows you to extract trees from the data graph</p>
 				</aside>
 			</section>
-
 			<section>
 				<section>
 					<h1>React Fiber</h1>
@@ -125,13 +123,12 @@
 						<li class="fragment">Your boss needs a hotfix right now</li>
 						<li class="fragment">With git, you don’t have to worry</li>
 						<li class="fragment"> React Fiber can pause and resume work at will</li>
-						<li class="fragment">get what matters on screen as quickly as possible! 🎉</li>
+						<li class="fragment">Get what matters on screen as quickly as possible! 🎉</li>
 					</ul>
-
 					<br>
 					<br>
 					<p>
-						<a href="https://medium.freecodecamp.org/lets-fall-in-love-with-react-fiber-90f2e1f68ded">React Fiber</a>
+						<small><a href="https://medium.freecodecamp.org/lets-fall-in-love-with-react-fiber-90f2e1f68ded">React Fiber</a></small>
 					</p>
 				</section>
 				<section>
@@ -140,7 +137,7 @@
 						<li>Rendering engine for the browser is single threaded</li>
 						<li class="fragment">Nearly all actions happen synchronously</li>
 						<li class="fragment">Previously, React would block the entire thread as it calculated the tree.</li>
-						<li class="fragment">blocking the main thread could still cause some applications to not feel fluid</li>
+						<li class="fragment">Blocking the main thread could still cause some applications to not feel fluid</li>
 					</ul>
 					<aside class="notes">
 						<p>React 16 manages the main thread and rendering using native browser APIs by intermittently checking to see if there
@@ -157,7 +154,6 @@
 						<li class="fragment">Core algorithm was rewritten</li>
 						<li class="fragment">Rendering work can be split into chunks</li>
 						<li class="fragment">Spread out over multiple frames</li>
-
 						<li class="fragment">React computes part of the tree </li>
 						<li class="fragment">Pause rendering to check if the main thread</li>
 						<li class="fragment">Any paints or updates need to be performed</li>
@@ -217,23 +213,6 @@
 					</aside>
 				</section>
 			</section>
-			<section>
-				<section>
-					<h1>Functional SetState</h1>
-				</section>
-				<section>
-					<img src="./images/functionalSetState.png" alt="">
-					<br>
-					<br>
-					<p>
-						<a href="https://x-team.com/blog/react-render-setstate/">Functional SetState</a>
-					</p>
-				</section>
-				<section>
-					<img src="./images/setState2.png" alt="">
-				</section>
-			</section>
-
 			<section>
 				<section>
 					<h1>Context</h1>
@@ -323,9 +302,8 @@
 					<img src="./images/portal.png" alt="">
 				</section>
 				<section>
-					<h2>Read it
-						<a href="https://reactjs.org/docs/portals.html">here</a>
-					</h2>
+					<h2>Read it</h2>
+					<a href="https://reactjs.org/docs/portals.html">here</a>
 				</section>
 			</section>
 			<section>
@@ -334,14 +312,12 @@
 				</section>
 				<section>
 					<h2>Fragments</h2>
-
 					<p>Group a list of children without adding extra nodes to the DOM</p>
 					<p class="fragment1">Fragments look like empty JSX tags</p>
 					<img src="./images/fragment2.png" alt="">
 				</section>
 				<section>
 					<h2>Fragment</h2>
-
 					<img src="./images/fragment1.png" alt="">
 					<p>
 						<a href="https://reactjs.org/blog/2017/11/28/react-v16.2.0-fragment-support.html">Fragment</a>
@@ -349,13 +325,52 @@
 				</section>
 			</section>
 			<section>
+					<section>
+						<h1>Functional SetState</h1>
+					</section>
+					<section>
+						<img src="./images/functionalSetState.png" alt="">
+						<br>
+						<br>
+						<p>
+							<a href="https://x-team.com/blog/react-render-setstate/">Functional SetState</a>
+						</p>
+					</section>
+					<section>
+						<img src="./images/setState2.png" alt="">
+					</section>
+				</section>
+			<section>
 				<section>
 					<h1>Others</h1>
+				</section>
+				<section>
+
 				</section>
 				<section>
 					<h2>Custom DOM Attributes</h2>
 					<p>Unknown DOM attributes that are not props would get ignored pre-React 16</p>
 					<img src="./images/domAttribute.png" alt="">
+				</section>
+				<section>
+					<h2>Lifecycle methods</h2>
+					<ul>
+						<li class="done">componentWillMount</li>
+						<li class="done">componentWillReceiveProps</li>
+						<li class="done">componentWillUpdate</li>
+						<li class="fragment">getDerivedStateFromProps</li>
+						<li class="fragment">getSnapshotBeforeUpdate</li>
+						<li class="fragment">componentDidCatch</li>
+					</ul>
+					<aside class="notes">
+						<p>These lifecycle methods have often been misunderstood and subtly misused; furthermore, we anticipate that their potential misuse may be more problematic with async rendering</p>
+						<p>getDerivedStateFromProps exists for only one purpose. It enables a component to update its internal state as the result of changes in props. </p>
+					</aside>
+					<p><small><a href="https://medium.com/@baphemot/understanding-reactjs-component-life-cycle-823a640b3e8d">React — Component life-cycle
+					</a></small></p>
+				</section>
+				<section>
+					<img src="./images/lifecycle.jpeg" alt="">
 				</section>
 				<section>
 					<h2>No parent in render</h2>
