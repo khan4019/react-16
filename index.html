@@ -101,11 +101,11 @@
 				<h2>We will Discuss</h2>
 				<ol>
 					<li>React Fiber</li>
-					<li class="fragment">Context API</li>					
+					<li class="fragment">Context API</li>
 					<li class="fragment">Portals, Fragments</li>
 					<li class="fragment">Component Life Cycle changes</li>
 					<li class="fragment">Few other change</li>
-					<li class="fragment">CreateRef API</li>
+					<!-- <li class="fragment">CreateRef API</li> -->
 				</ol>
 				<aside class="notes">
 					<p>It is called GraphQL as it allows you to extract trees from the data graph</p>
@@ -128,7 +128,9 @@
 					<br>
 					<br>
 					<p>
-						<small><a href="https://medium.freecodecamp.org/lets-fall-in-love-with-react-fiber-90f2e1f68ded">React Fiber</a></small>
+						<small>
+							<a href="https://medium.freecodecamp.org/lets-fall-in-love-with-react-fiber-90f2e1f68ded">React Fiber</a>
+						</small>
 					</p>
 				</section>
 				<section>
@@ -325,32 +327,8 @@
 				</section>
 			</section>
 			<section>
-					<section>
-						<h1>Functional SetState</h1>
-					</section>
-					<section>
-						<img src="./images/functionalSetState.png" alt="">
-						<br>
-						<br>
-						<p>
-							<a href="https://x-team.com/blog/react-render-setstate/">Functional SetState</a>
-						</p>
-					</section>
-					<section>
-						<img src="./images/setState2.png" alt="">
-					</section>
-				</section>
-			<section>
 				<section>
-					<h1>Others</h1>
-				</section>
-				<section>
-
-				</section>
-				<section>
-					<h2>Custom DOM Attributes</h2>
-					<p>Unknown DOM attributes that are not props would get ignored pre-React 16</p>
-					<img src="./images/domAttribute.png" alt="">
+					<h1>Lifecycle changes</h1>
 				</section>
 				<section>
 					<h2>Lifecycle methods</h2>
@@ -363,20 +341,39 @@
 						<li class="fragment">componentDidCatch</li>
 					</ul>
 					<aside class="notes">
-						<p>These lifecycle methods have often been misunderstood and subtly misused; furthermore, we anticipate that their potential misuse may be more problematic with async rendering</p>
-						<p>getDerivedStateFromProps exists for only one purpose. It enables a component to update its internal state as the result of changes in props. </p>
+						<p>These lifecycle methods have often been misunderstood and subtly misused; furthermore, we anticipate that their potential
+							misuse may be more problematic with async rendering</p>
+						<p>getDerivedStateFromProps exists for only one purpose. It enables a component to update its internal state as the result
+							of changes in props. </p>
 					</aside>
-					<p><small><a href="https://medium.com/@baphemot/understanding-reactjs-component-life-cycle-823a640b3e8d">React — Component life-cycle
-					</a></small></p>
+					<p>
+						<small>
+							<a href="https://medium.com/@baphemot/understanding-reactjs-component-life-cycle-823a640b3e8d">React — Component life-cycle
+							</a>
+						</small>
+					</p>
 				</section>
 				<section>
 					<img src="./images/lifecycle.jpeg" alt="">
 				</section>
+				<!-- <section>
+					<h2>Server side rendering</h2>
+				</section> -->
+			</section>
+			<section>
 				<section>
-					<h2>No parent in render</h2>
+					<h1>Functional SetState</h1>
 				</section>
 				<section>
-					<h2>Server side rendering</h2>
+					<img src="./images/functionalSetState.png" alt="">
+					<br>
+					<br>
+					<p>
+						<a href="https://x-team.com/blog/react-render-setstate/">Functional SetState</a>
+					</p>
+				</section>
+				<section>
+					<img src="./images/setState2.png" alt="">
 				</section>
 			</section>
 			<section>
@@ -384,23 +381,39 @@
 					<h1>Error Handling</h1>
 				</section>
 				<section>
-					<p>Previously, errors inside components would corrupt React’s state and provide cryptic errors on subsequent renders.</p>
-					<p>React 16 includes error boundaries will not only provide much clearer error messaging, but also prevent the entire application
-						from breaking.</p>
+					<h2>Error Boundaries</h2>
+					<ul>
+						<li class="fragment">Previously, errors inside components would corrupt React’s state</li>
+						<li class="fragment">No Meaningful error message</li>
+						<li class="fragment">React 16 includes error boundaries</li>
+						<li class="fragment">Catch errors anywhere in child component tree</li>
+						<li class="fragment">Clearer error messaging, log, display error UI</li>
+						<li class="fragment">Prevent the entire application
+								from breaking</li>						
+					</ul>
+					<br>
+					<br>
+					<p><small><a href="https://reactjs.org/docs/error-boundaries.html">Error Code</a></small></p>
+					<aside class="notes">
+							<p>After being added to your app, error boundaries catch errors and gracefully display a fallback UI without the entire
+								component tree crashing. The boundaries can catch errors during rendering, in lifecycle methods, and in constructors
+								of the whole tree below them. Error boundaries are simply implemented through the new lifecycle method componentDidCatch(error,
+								info).
+							</p>
+						</aside>
 				</section>
-				<section>
-					<p>After being added to your app, error boundaries catch errors and gracefully display a fallback UI without the entire
-						component tree crashing. The boundaries can catch errors during rendering, in lifecycle methods, and in constructors
-						of the whole tree below them. Error boundaries are simply implemented through the new lifecycle method componentDidCatch(error,
-						info).
-					</p>
-				</section>
-				<section>
+				
+				<!-- <section>
 					<img src="./images/error.png" alt="">
-				</section>
+				</section> -->
 				<section>
 					<img src="./images/error2.png" alt="">
 				</section>
+			</section>
+			<section>
+				<h2>Custom DOM Attributes</h2>
+				<p>Unknown DOM attributes that are not props would get ignored pre-React 16</p>
+				<img src="./images/domAttribute.png" alt="">
 			</section>
 			<section>
 				<section>
@@ -426,35 +439,14 @@
 			<section>
 				<h2>References</h2>
 				<ul>
-					<li>
-						<a href="https://www.howtographql.com/basics/0-introduction/">How to GraphQL</a>
-					</li>
-					<li>
-						<a href="https://graphql.github.io/graphql-js/">GraphQl tutorials in github</a>
-					</li>
-					<li>
-						<a href="https://medium.com/@weblab_tech/graphql-everything-you-need-to-know-58756ff253d8">Everything you need to know about GraphQL</a>
-					</li>
-					<li>
-						<a href="https://www.robinwieruch.de/react-with-graphql-tutorial/">A complete React with GraphQL Tutorial
-						</a>
-					</li>
-					<li>
-						<a href="https://dev-blog.apollodata.com/the-graphql-stack-how-everything-fits-together-35f8bf34f841">The GraphQL stack: How everything fits together</a>
-					</li>
-					<!-- 
-					<li>
-						<a href="https://blog.graph.cool/graphql-schema-stitching-explained-schema-delegation-4c6caf468405">Schema Stitching</a>
-					</li>
-					<li>
-						<a href="https://githubengineering.com/the-github-graphql-api/">Why Githup using GraphQL</a>
-					</li>
-					<li>
-						<a href="https://medium.freecodecamp.org/rest-apis-are-rest-in-peace-apis-long-live-graphql-d412e559d8e4">Long Live GraphQL</a>
-					</li> -->
+					<li><a href="https://reactjs.org/blog/2018/03/29/react-v-16-3.html">New lifecycles and context API</a></li>
+					<li><a href="https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html">Update on Async Rendering</a></li>
+					<li><a href="https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html">You Don't Need Derived State</a></li>
+					<li><a href="https://reactjs.org/docs/forwarding-refs.html">Forwarding Refs</a></li>
+					<li><a href="https://reactjs.org/docs/error-boundaries.html">Error Boundaries</a></li>
 				</ul>
 			</section>
-			<section>
+			<!-- <section>
 				<section>
 					<h1>Free Tip</h1>
 				</section>
@@ -483,7 +475,7 @@
 						<p>get a free pass from LA Fitness or any other gym</p>
 					</aside>
 				</section>
-			</section>
+			</section> -->
 			<section style="text-align: left;">
 				<h1>Thank you</h1>
 				<p>
