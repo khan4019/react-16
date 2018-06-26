@@ -104,7 +104,7 @@
 					<li class="fragment">Context API</li>
 					<li class="fragment">Portals, Fragments</li>
 					<li class="fragment">Component Life Cycle changes</li>
-					<li class="fragment">Few other change</li>
+					<li class="fragment">Functional setState</li>
 					<!-- <li class="fragment">CreateRef API</li> -->
 				</ol>
 				<aside class="notes">
@@ -220,10 +220,10 @@
 				<section>
 					<h2>Fiber demo</h2>
 					<p>
-						<a href="https://claudiopro.github.io/react-fiber-vs-stack-demo/">demo</a>
+						<a target="_blank" href="https://claudiopro.github.io/react-fiber-vs-stack-demo/">Demo</a>
 					</p>
 					<p>
-						<a href="https://gist.github.com/acdlite/f31becd03e2f5feb9b4b22267a58bc1f">another demo</a>
+						<a target="_blank" href="https://gist.github.com/acdlite/f31becd03e2f5feb9b4b22267a58bc1f">Another demo</a>
 					</p>
 					<aside class="notes">
 						<p>React 16 is dependent on Map and Set. To ensure compatibility with all browsers, you must include a polyfill. Popular
@@ -272,8 +272,7 @@
 						<small>Don’t use context just to avoid passing props a few levels down.</small>
 					</p>
 					<aside class="notes">
-						<p>Stick to cases where the same data needs to be accessed
-								in many components at multiple levels.</p>
+						<p>Stick to cases where the same data needs to be accessed in many components at multiple levels.</p>
 					</aside>
 				</section>
 				<section>
@@ -295,6 +294,29 @@
 					</p>
 				</section>
 			</section>
+			<section>
+				<section>
+					<h1>Fragments</h1>
+				</section>
+				<section>
+					<h2>Fragments</h2>
+					<p>
+						<small>Group a list of children without adding extra nodes to the DOM</small>
+					</p>
+					<p class="fragment1">
+						<small>Fragments look like empty JSX tags</small>
+					</p>
+					<img class="fragment" src="./images/fragment2.png" alt="">
+				</section>
+				<section>
+					<h2>Fragment</h2>
+					<img src="./images/fragment1.png" alt="">
+					<p>
+						<a href="https://reactjs.org/blog/2017/11/28/react-v16.2.0-fragment-support.html">Fragment</a>
+					</p>
+				</section>
+			</section>
+
 			<section>
 				<section>
 					<h1>Portals</h1>
@@ -321,33 +343,16 @@
 				</section>
 				<section>
 					<img src="./images/portals3.png" alt="">
-					
+
 				</section>
 				<section>
 					<img src="./images/portal.png" alt="">
-					<br><br>
-					<p><small><a href="https://reactjs.org/docs/portals.html">Portals</a></small></p>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>Fragments</h1>
-				</section>
-				<section>
-					<h2>Fragments</h2>
+					<br>
+					<br>
 					<p>
-						<small>Group a list of children without adding extra nodes to the DOM</small>
-					</p>
-					<p class="fragment1">
-						<small>Fragments look like empty JSX tags</small>
-					</p>
-					<img class="fragment" src="./images/fragment2.png" alt="">
-				</section>
-				<section>
-					<h2>Fragment</h2>
-					<img src="./images/fragment1.png" alt="">
-					<p>
-						<a href="https://reactjs.org/blog/2017/11/28/react-v16.2.0-fragment-support.html">Fragment</a>
+						<small>
+							<a href="https://reactjs.org/docs/portals.html">Portals</a>
+						</small>
 					</p>
 				</section>
 			</section>
@@ -371,7 +376,8 @@
 						<p>getDerivedStateFromProps exists for only one purpose. It enables a component to update its internal state as the result
 							of changes in props. </p>
 					</aside>
-					<br><br>
+					<br>
+					<br>
 					<p>
 						<small>
 							<a href="https://medium.com/@baphemot/understanding-reactjs-component-life-cycle-823a640b3e8d">React — Component life-cycle
@@ -396,23 +402,19 @@
 						<li class="fragment">Usually update our state just passing an object</li>
 						<li class="fragment">Describing the changes we would like to make</li>
 						<li class="fragment">React assign those values and trigger an update</li>
+
+					</ul>
+				</section>
+				<section>
+					<h2>setState</h2>
+					<ul>
+						<li class="fragment">Pass a callback function to
+							<code>setState()</code> </li>
+						<li class="fragment">function takes state and props</li>
+						<li class="fragment">Return your desired state from the function</li>
+						<li class="fragment">React will use it to update the state</li>
 						
-					</ul>
-				</section>
-				<section>
-					<ul>
-						<li class="fragment">Pass a function to setState() that takes state and props</li>
-						<li class="fragment">Return your desired state</li>
-						<li class="fragment">React will use for the update.</li>
-						<li class="fragment">Can decouple state set from component</li>
-						<li class="fragment">export it from a new file and reuse it</li>
-						<li class="fragment"></li>
-					</ul>
-				</section>
-				<section>
-					<h2>Prevent Re-render</h2>
-					<ul>
-						<li>prevent state updates and re-renders right from setState()</li>
+
 					</ul>
 				</section>
 				<section>
@@ -424,6 +426,27 @@
 					<br>
 					<p>
 						<a href="https://x-team.com/blog/react-render-setstate/">Functional SetState</a>
+					</p>
+				</section>
+
+				<section>
+					<h2>Why setState function?</h2>
+					<ul>
+							<li class="fragment">Can decouple
+									<code>state</code> set from component</li>
+								<li class="fragment">Export it from a new file and reuse it</li>
+						<li class="fragment">prevent state updates/ re-renders from
+							<code>setState()</code>
+						</li>
+						<li class="fragment">Return
+							<code>null</code> from setState function</li>
+					</ul>
+					<br>
+					<br>
+					<p>
+						<small>
+							<a href="https://www.youtube.com/watch?v=f4iiyy28VL4">Demystify setstate</a>
+						</small>
 					</p>
 				</section>
 				<section>
@@ -546,10 +569,10 @@
 			<section style="text-align: left;">
 				<h1>Thank you</h1>
 				<p>
-					<!---Follow:
-						 <a href="">@jsDude005</a> and <a href="">@karinaIslam1</a> -->
+					-Twitter:
+						 <a href="">@jsDude005</a> 
 					<p>-Website:
-						<a href="http://thatjsdude.com">thatjsude.com</a>
+						<a href="http://thatjsdude.com">thatJsDude.com</a>
 					</p>
 					<p>-Workshop:
 						<a href="http://thatjsdude.com/workshops/react/">thatjsdude.com/workshops/react/</a>
