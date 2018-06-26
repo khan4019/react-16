@@ -115,6 +115,34 @@
 				<section>
 					<h1>React Fiber</h1>
 				</section>
+
+				<section>
+					<h2>Rendering Engine</h2>
+					<ul>
+						<li>Rendering engine for the browser is single threaded</li>
+						<li class="fragment">Nearly all actions happen synchronously</li>
+						<li class="fragment">Previously, React would block the entire thread while calculating DOM tree</li>
+						<li class="fragment">Would block the main thread </li>
+						<li class="fragment">Could cause some applications to not feel fluid</li>
+					</ul>
+					<aside class="notes">
+						<p>React 16 manages the main thread and rendering using native browser APIs by intermittently checking to see if there
+							is other work that needs to be performed. </p>
+						<p>async rendering means is that the rendering work can be split into chunks and spread out over multiple frames</p>
+					</aside>
+				</section>
+				<section>
+					<img src="./images/stackReconciliation.png" alt="">
+				</section>
+				<section>
+					<h2>What was the problem?</h2>
+					<ul>
+						<li class="fragment">React suited well for rendering data structures</li>
+						<li class="fragment">Rendering a DOM tree or WebGL scene graph</li>
+						<li class="fragment">Animation suffer the cost of Reacts' inner working</li>
+						<li class="fragment">Skip style visually imperceptible updates</li>
+					</ul>
+				</section>
 				<section>
 					<h2>React Fiber</h2>
 					<ul>
@@ -134,34 +162,22 @@
 					</p>
 				</section>
 				<section>
-					<h2>React Rendering</h2>
-					<ul>
-						<li>Rendering engine for the browser is single threaded</li>
-						<li class="fragment">Nearly all actions happen synchronously</li>
-						<li class="fragment">Previously, React would block the entire thread as it calculated the tree.</li>
-						<li class="fragment">Blocking the main thread could still cause some applications to not feel fluid</li>
-					</ul>
-					<aside class="notes">
-						<p>React 16 manages the main thread and rendering using native browser APIs by intermittently checking to see if there
-							is other work that needs to be performed. </p>
-						<p>async rendering means is that the rendering work can be split into chunks and spread out over multiple frames</p>
-					</aside>
-				</section>
-				<section>
-					<img src="./images/stackReconciliation.png" alt="">
-				</section>
-				<section>
 					<h2>Async Rendering</h2>
 					<ul>
-						<li class="fragment">Core algorithm was rewritten</li>
+						<li class="fragment">Re-implementation of React core algorithm</li>
 						<li class="fragment">Rendering work can be split into chunks</li>
 						<li class="fragment">Spread out over multiple frames</li>
 						<li class="fragment">React computes part of the tree </li>
-						<li class="fragment">Pause rendering to check if the main thread</li>
-						<li class="fragment">Any paints or updates need to be performed</li>
-						<li class="fragment">When paints/ updates completed, React begins rendering again.</li>
+						<li class="fragment">Pause rendering to check the main thread</li>
+						<li class="fragment">If any paints or updates need to be performed</li>
+						<li class="fragment">When paints/ updates completed, React begins rendering again</li>
 						<li class="fragment">Accomplished by a data structure called a “fiber”</li>
 					</ul>
+					<p>
+						<small>
+							<a href="https://github.com/acdlite/react-fiber-architecture/blob/master/README.md">React Fiber Architecture</a>
+						</small>
+					</p>
 					<aside class="notes">
 						<p>React computes part of the tree and then will pause rendering to check if the main thread has any paints or updates
 							that need to be performed</p>
@@ -220,20 +236,22 @@
 					<h1>Context</h1>
 				</section>
 				<section>
-					<h2>Context</h2>
+					<h2>App Level settings?</h2>
 					<ul>
-						<li>Pass data through the component tree</li>
-						<li class="fragment">Without passing props down manually at every level</li>
-						<li class="fragment">Otherwise you have to pass manually every level</li>
+						<li>Pass data through the component tree?</li>
+						<li class="fragment">Pass data manually every level as props</li>
 						<li class="fragment">Like: Current locale, theme, user Context</li>
+						<li class="fragment">Not very developer friendly.</li>
 					</ul>
 				</section>
 				<section>
 					<img src="./images/context1.png" alt="">
 				</section>
 				<section>
-					<h2>When to Use Context</h2>
+					<h2>Context</h2>
 					<ul>
+						<li>Gives you the power to pass data to child component</li>
+						<li class="fragment">Without passing props down manually at every level</li>
 						<li class="fragment">Share values like these between components</li>
 					</ul>
 				</section>
@@ -250,10 +268,13 @@
 					<img src="./images/context5.png" alt="" class="fragment">
 					<img src="./images/context6.png" alt="" class="fragment">
 					<img src="./images/context7.png" alt="" class="fragment">
-					<p>
-						<small>Don’t use context just to avoid passing props a few levels down. Stick to cases where the same data needs to be accessed
-							in many components at multiple levels.</small>
+					<p class="fragment">
+						<small>Don’t use context just to avoid passing props a few levels down.</small>
 					</p>
+					<aside class="notes">
+						<p>Stick to cases where the same data needs to be accessed
+								in many components at multiple levels.</p>
+					</aside>
 				</section>
 				<section>
 					<h2>Advanced Usage</h2>
@@ -286,6 +307,7 @@
 						<li class="fragment">Any renderable React child: element, string, or fragment</li>
 						<li class="fragment">Useful for dialogs, hovercards, and tooltips</li>
 						<li class="fragment">Parent will be able to catch event bubble</li>
+						<li class="fragment">Portal will get the context as if regular DOM</li>
 					</ul>
 					<img class="fragment" src="./images/portals.png" alt="">
 					<br>
@@ -299,13 +321,12 @@
 				</section>
 				<section>
 					<img src="./images/portals3.png" alt="">
+					
 				</section>
 				<section>
 					<img src="./images/portal.png" alt="">
-				</section>
-				<section>
-					<h2>Read it</h2>
-					<a href="https://reactjs.org/docs/portals.html">here</a>
+					<br><br>
+					<p><small><a href="https://reactjs.org/docs/portals.html">Portals</a></small></p>
 				</section>
 			</section>
 			<section>
@@ -314,9 +335,13 @@
 				</section>
 				<section>
 					<h2>Fragments</h2>
-					<p>Group a list of children without adding extra nodes to the DOM</p>
-					<p class="fragment1">Fragments look like empty JSX tags</p>
-					<img src="./images/fragment2.png" alt="">
+					<p>
+						<small>Group a list of children without adding extra nodes to the DOM</small>
+					</p>
+					<p class="fragment1">
+						<small>Fragments look like empty JSX tags</small>
+					</p>
+					<img class="fragment" src="./images/fragment2.png" alt="">
 				</section>
 				<section>
 					<h2>Fragment</h2>
@@ -346,6 +371,7 @@
 						<p>getDerivedStateFromProps exists for only one purpose. It enables a component to update its internal state as the result
 							of changes in props. </p>
 					</aside>
+					<br><br>
 					<p>
 						<small>
 							<a href="https://medium.com/@baphemot/understanding-reactjs-component-life-cycle-823a640b3e8d">React — Component life-cycle
@@ -363,6 +389,34 @@
 			<section>
 				<section>
 					<h1>Functional SetState</h1>
+				</section>
+				<section>
+					<h2>Update State</h2>
+					<ul>
+						<li class="fragment">Usually update our state just passing an object</li>
+						<li class="fragment">Describing the changes we would like to make</li>
+						<li class="fragment">React assign those values and trigger an update</li>
+						
+					</ul>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">Pass a function to setState() that takes state and props</li>
+						<li class="fragment">Return your desired state</li>
+						<li class="fragment">React will use for the update.</li>
+						<li class="fragment">Can decouple state set from component</li>
+						<li class="fragment">export it from a new file and reuse it</li>
+						<li class="fragment"></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Prevent Re-render</h2>
+					<ul>
+						<li>prevent state updates and re-renders right from setState()</li>
+					</ul>
+				</section>
+				<section>
+					<img src="./images/functionSetState.png" alt="">
 				</section>
 				<section>
 					<img src="./images/functionalSetState.png" alt="">
@@ -388,21 +442,24 @@
 						<li class="fragment">React 16 includes error boundaries</li>
 						<li class="fragment">Catch errors anywhere in child component tree</li>
 						<li class="fragment">Clearer error messaging, log, display error UI</li>
-						<li class="fragment">Prevent the entire application
-								from breaking</li>						
+						<li class="fragment">Prevent the entire application from breaking</li>
 					</ul>
 					<br>
 					<br>
-					<p><small><a href="https://reactjs.org/docs/error-boundaries.html">Error Code</a></small></p>
+					<p>
+						<small>
+							<a href="https://reactjs.org/docs/error-boundaries.html">Error Code</a>
+						</small>
+					</p>
 					<aside class="notes">
-							<p>After being added to your app, error boundaries catch errors and gracefully display a fallback UI without the entire
-								component tree crashing. The boundaries can catch errors during rendering, in lifecycle methods, and in constructors
-								of the whole tree below them. Error boundaries are simply implemented through the new lifecycle method componentDidCatch(error,
-								info).
-							</p>
-						</aside>
+						<p>After being added to your app, error boundaries catch errors and gracefully display a fallback UI without the entire
+							component tree crashing. The boundaries can catch errors during rendering, in lifecycle methods, and in constructors
+							of the whole tree below them. Error boundaries are simply implemented through the new lifecycle method componentDidCatch(error,
+							info).
+						</p>
+					</aside>
 				</section>
-				
+
 				<!-- <section>
 					<img src="./images/error.png" alt="">
 				</section> -->
@@ -439,11 +496,21 @@
 			<section>
 				<h2>References</h2>
 				<ul>
-					<li><a href="https://reactjs.org/blog/2018/03/29/react-v-16-3.html">New lifecycles and context API</a></li>
-					<li><a href="https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html">Update on Async Rendering</a></li>
-					<li><a href="https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html">You Don't Need Derived State</a></li>
-					<li><a href="https://reactjs.org/docs/forwarding-refs.html">Forwarding Refs</a></li>
-					<li><a href="https://reactjs.org/docs/error-boundaries.html">Error Boundaries</a></li>
+					<li>
+						<a href="https://reactjs.org/blog/2018/03/29/react-v-16-3.html">New lifecycles and context API</a>
+					</li>
+					<li>
+						<a href="https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html">Update on Async Rendering</a>
+					</li>
+					<li>
+						<a href="https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html">You Don't Need Derived State</a>
+					</li>
+					<li>
+						<a href="https://reactjs.org/docs/forwarding-refs.html">Forwarding Refs</a>
+					</li>
+					<li>
+						<a href="https://reactjs.org/docs/error-boundaries.html">Error Boundaries</a>
+					</li>
 				</ul>
 			</section>
 			<!-- <section>
